@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcuaNav - Excelencia Acuícola</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'shrimp-orange': '#f97316',
+                        'shrimp-dark': '#ea580c',
+                        'ocean-blue': '#1e3a8a',
+                        'ocean-light': '#1e40af',
+                        'ocean-deep': '#172554'
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        },
+                        'float': {
+                            '0%, 100%': {
+                                transform: 'translateY(0)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-20px)'
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 glass-effect shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2 text-ocean-blue">
+                <h1 class="title-style-a select-none">acua</h1>
+                <h1 class="title-style-b select-none"> NAV </h1>
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium items-center">
+                <a href="#inicio" class="hover:text-shrimp-orange transition">Inicio</a>
+                <a href="#nosotros" class="hover:text-shrimp-orange transition">Nosotros</a>
+                <a href="#tallas" class="hover:text-shrimp-orange transition">Tallas Comerciales</a>
+                <a href="#contacto" class="bg-shrimp-orange text-white px-5 py-2 rounded-full hover:bg-shrimp-dark transition shadow-md">Contacto</a>
+            </div>
+            <button class="md:hidden text-2xl text-ocean-blue" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-6 py-4 flex flex-col space-y-4">
+            <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+            <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
+            <a href="#tallas" onclick="toggleMenu()">Tallas Comerciales</a>
+            <a href="#contacto" onclick="toggleMenu()">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="relative h-screen flex items-center justify-center text-white overflow-hidden hero-bg">
+        <div class="absolute top-20 left-10 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-40 right-10 w-96 h-96 bg-shrimp-orange/10 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <div class="mb-8 flex justify-center">
+                <img src="assets/img/AcuaNav_Logotipo_RGB.png" alt="Logo_Acuanav" class="h-48 md:h-64 w-auto drop-shadow-2xl pointer-events-none" oncontextmenu="return false;" onmousedown="return false;">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">El Sabor Auténtico del Camarón <span class="text-shrimp-orange">Sinaloense</span></h1>
+            <p class="text-lg md:text-xl mb-10 opacity-90 leading-relaxed max-w-2xl mx-auto">Directamente desde las costas de El Dorado, Sinaloa, cosechamos con pasión para llevar a su mesa un producto de frescura inigualable, textura firme y el calibre excepcional que solo nuestra tierra puede ofrecer.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#tallas" class="bg-shrimp-orange px-8 py-4 rounded-lg text-lg font-semibold hover:bg-shrimp-dark transition shadow-lg orange-glow flex items-center justify-center">
+                    <i class="fas fa-th-list mr-2"></i> Ver Catálogo de Tallas
+                </a>
+                <!--
+                <a href="#nosotros" class="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition shadow-lg flex items-center justify-center border border-white/30">
+                    <i class="fas mr-2"></i> Conocenos
+                </a>
+                -->
+
+            </div>
+        </div>
+
+        <div class="wave-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#f9fafb" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Nosotros -->
+    <section id="nosotros" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-shrimp-orange font-bold mb-2 uppercase tracking-widest text-sm">Nuestra Pasión</h2>
+                <h3 class="text-4xl font-bold mb-8 text-ocean-blue">Excelencia en cada cosecha</h3>
+                <p class="text-gray-600 mb-10 text-xl leading-relaxed">
+                    En AcuaNav, aprovechamos las condiciones privilegiadas de nuestro entorno costero, integrando procesos naturales de alta eficiencia. Nuestra ubicación estratégica nos brinda acceso a aguas ricas en nutrientes, lo que garantiza un producto de frescura
+                    superior y calidad garantizada.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div class="flex items-start space-x-4 bg-white p-6 rounded-2xl border-2 border-shrimp-orange shadow-sm hover-card">
+                        <i class="fas fa-map-marker-alt text-shrimp-orange text-3xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-ocean-blue text-lg">Ubicación Estratégica</h4>
+                            <p class="text-gray-500">Operamos en una de las zonas con mayor tradición acuícola del mundo: El Dorado, Sinaloa.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 bg-white p-6 rounded-2xl border-2 border-shrimp-orange shadow-sm hover-card">
+                        <i class="fas fa-handshake text-shrimp-orange text-3xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-ocean-blue text-lg">Garantía de Suministro</h4>
+                            <p class="text-gray-500">Construimos relaciones de confianza a largo plazo mediante puntualidad y calidad constante en cada cosecha.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tallas Comerciales -->
+    <section id="tallas" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-ocean-blue mb-4">Clasificación por Tallas</h2>
+                <div class="w-24 h-1 bg-shrimp-orange mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Especializados en camarón blanco (Vannamei) cosechado y clasificado en Sinaloa bajo estándares internacionales.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Talla 1 (U-15) -->
+                <div class="bg-white rounded-2xl border-2 border-shrimp-orange shadow-sm overflow-hidden hover-card flex flex-col h-full">
+                    <div class="bg-shrimp-orange py-3 text-center">
+                        <span class="text-white font-bold text-xs uppercase tracking-widest">Categoría Especial</span>
+                    </div>
+                    <div class="p-6 text-center flex-grow">
+                        <h4 class="text-4xl font-black text-ocean-blue mb-2 mt-4">U-15</h4>
+                        <p class="text-shrimp-orange font-bold mb-4 uppercase text-[10px] tracking-widest">Colosal Premium</p>
+                        <div class="h-px bg-gray-100 w-full mb-6"></div>
+                        <ul class="text-left space-y-3 text-gray-600 text-sm">
+                            <li class="flex items-start font-medium text-gray-800"><i class="fas fa-check text-shrimp-orange mr-2 mt-1 text-xs"></i> Bajo 15 pzas/lb</li>
+                            <li class="flex items-start font-medium text-gray-800"><i class="fas fa-check text-shrimp-orange mr-2 mt-1 text-xs"></i> Máximo tamaño comercial</li>
+                            <li class="flex items-start font-medium text-gray-800"><i class="fas fa-check text-shrimp-orange mr-2 mt-1 text-xs"></i> Ideal para exportación</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Talla 2 (21/25) -->
+                <div class="bg-white rounded-2xl border-2 border-shrimp-orange shadow-sm overflow-hidden hover-card flex flex-col h-full">
+                    <div class="bg-shrimp-orange py-3 text-center">
+                        <span class="text-white font-bold text-xs uppercase tracking-widest">Más Solicitado</span>
+                    </div>
+                    <div class="p-6 text-center flex-grow">
+                        <h4 class="text-4xl font-black text-ocean-blue mb-2 mt-4">21/25</h4>
+                        <p class="text-shrimp-orange font-bold mb-4 uppercase text-[10px] tracking-widest">Jumbo Gourmet</p>
+                        <div class="h-px bg-gray-100 w-full mb-6"></div>
+                        <ul class="text-left space-y-3 text-gray-600 text-sm">
+                            <li class="flex items-start font-medium text-gray-800"><i class="fas fa-check text-shrimp-orange mr-2 mt-1 text-xs"></i> Grande, ideal para parrilladas</li>
+                            <li class="flex items-start font-medium text-gray-800"><i class="fas fa-check text-shrimp-orange mr-2 mt-1 text-xs"></i> Favorito para platillos fuertes</li>
+                            <li class="flex items-start font-medium text-gray-800"><i class="fas fa-check text-shrimp-orange mr-2 mt-1 text-xs"></i> Excelente relación costo-talla</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Talla 3 (41/50) -->
+                <div class="bg-white rounded-2xl border-2 border-shrimp-orange shadow-sm overflow-hidden hover-card flex flex-col h-full">
+                    <div class="bg-shrimp-orange py-3 text-center">
+                        <span class="text-white font-bold text-xs uppercase tracking-widest">Uso Comercial</span>
+                    </div>
+                    <div class="p-6 text-center flex-grow">
+                        <h4 class="text-4xl font-black text-ocean-blue mb-2 mt-4">41/50</h4>
+                        <p class="text-shrimp-orange font-bold mb-4 uppercase text-[10px] tracking-widest">Mediano / Cóctel</p>
+                        <div class="h-px bg-gray-100 w-full mb-6"></div>
+                        <ul class="text-left space-y-3 text-gray-600 text-sm">
+                            <li class="flex items-start font-medium text-gray-800"><i class="fas fa-check text-shrimp-orange mr-2 mt-1 text-xs"></i> Entre 41 y 50 piezas por libra</li>
+                            <li class="flex items-start font-medium text-gray-800"><i class="fas fa-check text-shrimp-orange mr-2 mt-1 text-xs"></i> Ideal para cevicherías</li>
+                            <li class="flex items-start font-medium text-gray-800"><i class="fas fa-check text-shrimp-orange mr-2 mt-1 text-xs"></i> Máximo rendimiento comercial</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Talla Especial -->
+                <div class="bg-ocean-blue rounded-2xl border-2 border-ocean-blue shadow-lg overflow-hidden hover-card flex flex-col h-full text-white">
+                    <div class="bg-shrimp-orange py-3 text-center">
+                        <span class="text-white font-bold text-xs uppercase tracking-widest">Pedidos Especiales</span>
+                    </div>
+                    <div class="p-6 text-center flex flex-col justify-between h-full">
+                        <div>
+                            <h4 class="text-2xl font-bold mb-4 mt-4 leading-tight">¿Buscas una talla diferente?</h4>
+                            <div class="h-px bg-white/20 w-full mb-6"></div>
+                            <p class="text-white/80 text-sm mb-6">Manejamos calibres personalizados según la temporada y requerimientos técnicos de tu negocio.</p>
+                        </div>
+                        <a href="#contacto" class="bg-white text-ocean-blue py-3 rounded-xl font-bold text-sm hover:bg-shrimp-orange hover:text-white transition-all inline-block shadow-md">
+                            <i class="fas fa-comment-dots mr-2"></i> Consultar Disponibilidad
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="bg-white border border-gray-100 rounded-3xl p-8 md:p-12 shadow-sm">
+                <div class="flex flex-col md:flex-row gap-12">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold mb-6 text-ocean-blue">Consiga una Cotización</h2>
+                        <p class="text-gray-600 mb-8 leading-relaxed">¿Busca un proveedor confiable en Sinaloa? Estamos listos para suministrar a su empresa el mejor producto.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-blue-50 p-4 rounded-xl text-ocean-blue">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 uppercase font-bold">Escríbanos</p>
+                                    <span class="font-semibold text-ocean-blue">contacto@acuanav.com</span>
+                                </div>
+                            </div>
+                            <!--
+                                 <div class="flex items-center space-x-4">
+                                <div class="bg-orange-50 p-4 rounded-xl text-shrimp-orange">
+                                    <i class="fas fa-map-pin"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 uppercase font-bold">Oficinas</p>
+                                    <span class="font-semibold text-ocean-blue">El Dorado, Sinaloa, México.</span>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    <!-- Formulario de Contacto -->
+                    <div class="md:w-1/2 bg-gray-50 p-8 rounded-2xl shadow-xl border-2 border-shrimp-orange/30 relative overflow-hidden group">
+                        <!-- Elemento decorativo de esquina -->
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-shrimp-orange/10 rounded-bl-full -mr-8 -mt-8 transition-all group-hover:scale-150"></div>
+
+                        <form id="contactForm" onsubmit="event.preventDefault(); showSuccess();">
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <input type="text" name="user_name" placeholder="Nombre" class="p-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-shrimp-orange focus:ring-1 focus:ring-shrimp-orange w-full" required>
+                                <input type="email" name="user_email" placeholder="Email" class="p-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-shrimp-orange focus:ring-1 focus:ring-shrimp-orange w-full" required>
+                            </div>
+                            <!-- Campo "Talla Requerida" eliminado según solicitud -->
+                            <textarea name="message" placeholder="Mensaje, volumen de pedido o talla de interés" class="p-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-shrimp-orange focus:ring-1 focus:ring-shrimp-orange w-full h-40 mb-4" required></textarea>
+                            <div class="flex items-start mb-6">
+                                <div class="flex items-center h-5">
+                                    <input type="checkbox" id="privacy" class="w-4 h-4 text-shrimp-orange rounded border-gray-300 focus:ring-shrimp-orange" required>
+                                </div>
+                                <div class="ml-3 text-xs">
+                                    <label for="privacy" class="text-gray-500">
+                                        He leído y acepto el 
+                                        <button type="button" onclick="toggleModal(true)" class="text-shrimp-orange font-bold hover:underline focus:outline-none">
+                                            Aviso de Privacidad
+                                        </button>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" id="submitBtn" class="w-full bg-ocean-blue text-white py-4 rounded-lg font-bold hover:bg-shrimp-orange transition duration-300 shadow-lg transform active:scale-95">Enviar Solicitud</button>
+                        </form>
+                        <div id="successMessage" class="hidden text-center py-10">
+                            <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-check text-3xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-ocean-blue">¡Solicitud Enviada!</h4>
+                            <p class="text-gray-500">Un asesor pondrá en contacto pronto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="privacy-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto px-4 py-6 sm:px-0 flex items-center justify-center">
+        <!-- Fondo oscuro -->
+        <div class="fixed inset-0 bg-ocean-deep/80 backdrop-blur-sm transition-opacity" onclick="toggleModal(false)"></div>
+
+        <!-- Contenedor del Modal -->
+        <div class="relative bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-hidden shadow-2xl transform transition-all flex flex-col">
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+                <h3 class="text-xl font-bold text-ocean-blue">Aviso de Privacidad</h3>
+                <button onclick="toggleModal(false)" class="text-gray-400 hover:text-shrimp-orange transition">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Cuerpo del texto -->
+            <div class="p-8 overflow-y-auto text-sm text-gray-600 leading-relaxed">
+                <p class="mb-4"><strong>Última actualización:</strong> Febrero 2026</p>
+
+                <p class="mb-4">AcuaNav, con domicilio en [Insertar Dirección Completa en El Dorado, Sinaloa], es el responsable del tratamiento de los datos personales que nos proporcione, los cuales serán protegidos conforme a lo dispuesto por la Ley Federal de Protección
+                    de Datos Personales en Posesión de los Particulares (LFPDPPP), y demás normatividad aplicable.</p>
+
+                <h4 class="font-bold text-ocean-blue mb-2">1. Datos personales que recabamos</h4>
+                <p class="mb-4">Para llevar a cabo las finalidades descritas en el presente aviso, utilizaremos los siguientes datos personales:
+                    <ul class="list-disc ml-5 mb-4 space-y-1">
+                        <li>Nombre completo.</li>
+                        <li>Correo electrónico.</li>
+                        <li>Teléfono de contacto.</li>
+                        <li>Información sobre sus necesidades de compra (tallas de camarón, volúmenes).</li>
+                    </ul>
+                </p>
+
+                <h4 class="font-bold text-ocean-blue mb-2">2. Finalidades del Tratamiento</h4>
+                <p class="mb-4">Los datos personales que recabamos de usted, los utilizaremos para las siguientes finalidades que son necesarias para el servicio que solicita:
+                    <ul class="list-disc ml-5 mb-4 space-y-1">
+                        <li>Atender sus solicitudes de cotización de producto.</li>
+                        <li>Establecer contacto comercial para la venta de camarón y derivados acuícolas.</li>
+                        <li>Informar sobre disponibilidad de tallas y cambios en precios de temporada.</li>
+                        <li>Gestionar la logística de entrega y facturación en caso de concretar una venta.</li>
+                    </ul>
+                    De manera adicional, utilizaremos su información para finalidades secundarias que no son necesarias para el servicio solicitado, pero que nos permiten brindarle una mejor atención: Envío de promociones o boletines informativos sobre nuevas cosechas.
+                </p>
+
+                <h4 class="font-bold text-ocean-blue mb-2">3. Transferencia de Datos</h4>
+                <p class="mb-4">Le informamos que sus datos personales no serán compartidos con personas, empresas, organizaciones o autoridades distintas a nosotros, salvo que sea necesario para el cumplimiento de una obligación legal o para la logística de entrega
+                    de su pedido (empresas de transporte).
+                </p>
+
+                <h4 class="font-bold text-ocean-blue mb-2">4. Derechos ARCO (Acceso, Rectificación, Cancelación y Oposición)</h4>
+                <p class="mb-4">Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté
+                    desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada conforme a los principios, deberes y obligaciones previstos
+                    en la normativa (Cancelación); así como oponerse al uso de sus datos personales para fines específicos (Oposición). Para el ejercicio de cualquier de los derechos ARCO, usted deberá presentar la solicitud respectiva a través del correo
+                    electrónico: <strong>contacto@acuanav.com</strong>.
+                </p>
+
+                <h4 class="font-bold text-ocean-blue mb-2">5. Uso de Cookies</h4>
+                <p class="mb-4">
+                    Le informamos que en nuestra página de internet utilizamos cookies y otras tecnologías, a través de las cuales es posible monitorear su comportamiento como usuario de internet, con el fin de brindarle un mejor servicio y experiencia al navegar en nuestra
+                    página.
+                </p>
+
+                <h4 class="font-bold text-ocean-blue mb-2">6. Cambios al aviso de privacidad</h4>
+                <p class="mb-4">
+                    El presente aviso de privacidad puede sufrir modificaciones, cambios o actualizaciones derivadas de nuevos requerimientos legales; de nuestras propias necesidades por los productos o servicios que ofrecemos; o por otras causas. Nos comprometemos a mantenerlo
+                    informado sobre los cambios que pueda sufrir el presente aviso de privacidad a través de nuestra página web.
+                </p>
+
+                <p class="mt-6 p-4 bg-orange-50 rounded-lg text-xs italic">Al marcar la casilla en el formulario, usted consiente explícitamente el tratamiento de sus datos bajo los términos aquí descritos.</p>
+            </div>
+
+            <!-- Footer -->
+            <div class="px-6 py-4 border-t border-gray-100 bg-gray-50 text-right">
+                <button onclick="toggleModal(false)" class="bg-ocean-blue text-white px-6 py-2 rounded-lg font-bold hover:bg-shrimp-orange transition">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Básico -->
+    <footer class="bg-ocean-deep py-12 text-white/80 border-t-4 border-shrimp-orange">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-white/60 text-sm mb-6">El Dorado, Sinaloa, México.</p>
+            <div class="flex justify-center space-x-8 text-sm font-medium mb-8">
+                <a href="#inicio" class="hover:text-shrimp-orange transition">Inicio</a>
+                <a href="#nosotros" class="hover:text-shrimp-orange transition">Nosotros</a>
+                <a href="#tallas" class="hover:text-shrimp-orange transition">Tallas</a>
+                <a href="#contacto" class="hover:text-shrimp-orange transition">Contacto</a>
+            </div>
+            <div class="h-px bg-white/10 w-24 mx-auto mb-6"></div>
+            <p class="text-white/40 text-xs">&copy; 2026 AcuaNav S.A. de C.V. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

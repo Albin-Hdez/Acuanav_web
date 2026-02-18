@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.hero-bg {
+    background: linear-gradient( 275deg, #CFE4e7, #CFE4e7, #5c9d98, #9bc5cb);
+    background-size: 400% 400%;
+    animation: gradient-x 15s ease infinite;
+}
+
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+.hover-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: #f97316 !important;
+}
+
+.orange-glow:hover {
+    box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
+}
+
+@font-face {
+    font-family: 'HandelGo';
+    src: url('../fonts/HandelGo.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Thorndale_Regular';
+    src: url('../fonts/Thorndale_Regular.ttf') format('truetype');
+}
+
+.title-style-a {
+    font-family: 'HandelGo', sans-serif;
+    font-size: 3rem;
+    line-height: 1;
+    color: #351883;
+}
+
+.title-style-b {
+    font-family: 'Thorndale_Regular', sans-serif;
+    font-size: 3rem;
+    line-height: 1;
+    color: #351883;
+}
+
+.custom-text-a {
+    font-family: 'HandelGo', monospace;
+    line-height: 1.6;
+}
+
+.custom-text-b {
+    font-family: 'Thorndale_Regular', monospace;
+    line-height: 1.6;
+}
